@@ -35,8 +35,7 @@ const About = () => {
               </div>
 
               <a
-                // UPDATED HREF: Use a path relative to the deployed base URL (/portfolio/)
-                href="/portfolio/assets/Raza_DevX-Resume.pdf"
+                href="/portfolio/Raza_DevX-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
