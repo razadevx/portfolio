@@ -106,7 +106,7 @@ img.h-10.w-auto {
 .p-8 {
     padding: 2rem 1rem !important;
 }
+}
 .hover\:text-accent-foreground:hover {
     color: #40baf9 !important;
-}
 }
