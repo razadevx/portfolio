@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,11 +40,15 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-    {/* Logo */}
-    <a href="/portfolio/">
-      <img src="/portfolio/razadevx.webp" alt="DevX Logo" className="h-10 w-auto" />
-    </a>
-    {/* Desktop Navigation */}
+        {/* Logo */}
+        <a href="/portfolio/">
+          <img
+            src="/portfolio/razadevx.webp"
+            alt="DevX Logo"
+            className="h-10 w-auto"
+          />
+        </a>
+        {/* Desktop Navigation */}
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
@@ -55,6 +60,7 @@ const Header = () => {
               {item.label}
             </button>
           ))}
+          <ThemeToggle />
           <Button
             onClick={() => scrollToSection("contact")}
             className="hover-glow"
@@ -85,12 +91,18 @@ const Header = () => {
                 {item.label}
               </button>
             ))}
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="mt-4 w-full"
-            >
+            {/* <Button onClick={() => scrollToSection("contact")} className="mt-4 w-full">
               Let's Talk
-            </Button>
+            </Button> */}
+            <div className="flex items-center gap-4 mt-4">
+              <ThemeToggle />
+              <Button
+                onClick={() => scrollToSection("contact")}
+                className="flex-1"
+              >
+                Let's Talk
+              </Button>
+            </div>
           </nav>
         </div>
       )}
