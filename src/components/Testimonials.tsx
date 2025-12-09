@@ -37,6 +37,7 @@ const Testimonials = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [itemsPerView, setItemsPerView] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('left');
 
   useEffect(() => {
     const handleResize = () => {
@@ -54,12 +55,14 @@ const Testimonials = () => {
 
   const nextTestimonial = () => {
     if (isAnimating) return;
+    setSlideDirection('left');
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
     if (isAnimating) return;
+    setSlideDirection('right');
     setIsAnimating(true);
     setCurrentIndex(
       (prev) => (prev - 1 + testimonials.length) % testimonials.length
@@ -72,11 +75,13 @@ const Testimonials = () => {
   }, [currentIndex]);
 
   useEffect(() => {
+    if (isPaused) return;
+    
     const autoPlay = setInterval(() => {
       nextTestimonial();
     }, 5000);
     return () => clearInterval(autoPlay);
-  }, [isAnimating]);
+  }, [isAnimating, isPaused]);
 
   const getVisibleTestimonials = () => {
     const visible = [];
@@ -116,7 +121,11 @@ const Testimonials = () => {
         </div>
 
         {/* Testimonial Carousel */}
-        <div className="max-w-7xl mx-auto">
+        <div 
+          className="max-w-7xl mx-auto"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <div className="relative">
             {/* Testimonial Grid */}
             <div
@@ -124,8 +133,10 @@ const Testimonials = () => {
                 itemsPerView === 3 ? "grid-cols-3" : "grid-cols-1"
               } ${
                 isAnimating
-                  ? "opacity-0 translate-y-4"
-                  : "opacity-100 translate-y-0"
+                  ? slideDirection === 'left' 
+                    ? "opacity-0 -translate-x-8"
+                    : "opacity-0 translate-x-8"
+                  : "opacity-100 translate-x-0"
               }`}
             >
               {visibleTestimonials.map((testimonial, idx) => (
@@ -183,7 +194,10 @@ const Testimonials = () => {
             {/* Navigation Buttons */}
             <div className="flex justify-center gap-4 mt-8">
               <button
-                onClick={prevTestimonial}
+                onClick={() => {
+                  prevTestimonial();
+                  setIsPaused(true);
+                }}
                 className="w-12 h-12 rounded-full bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 hover:scale-105"
                 aria-label="Previous testimonial"
               >
@@ -197,8 +211,10 @@ const Testimonials = () => {
                     key={index}
                     onClick={() => {
                       if (!isAnimating) {
+                        setSlideDirection(index > currentIndex ? 'left' : 'right');
                         setIsAnimating(true);
                         setCurrentIndex(index);
+                        setIsPaused(true);
                       }
                     }}
                     className={`transition-all duration-300 rounded-full ${
@@ -212,7 +228,10 @@ const Testimonials = () => {
               </div>
 
               <button
-                onClick={nextTestimonial}
+                onClick={() => {
+                  nextTestimonial();
+                  setIsPaused(true);
+                }}
                 className="w-12 h-12 rounded-full bg-card border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 hover:scale-105"
                 aria-label="Next testimonial"
               >
