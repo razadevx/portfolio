@@ -19,8 +19,8 @@ const Header = () => {
   useEffect(() => {
     // Check initial theme
     const checkTheme = () => {
-      const isLight = document.documentElement.classList.contains("light");
-      setTheme(isLight ? "light" : "dark");
+      const isDark = document.documentElement.classList.contains("light");
+      setTheme(isDark ? "dark" : "light");
     };
 
     checkTheme();

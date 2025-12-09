@@ -13,6 +13,14 @@ const ThemeToggle = () => {
     }
   }, []);
 
+  // Update favicon when theme changes
+  useEffect(() => {
+    const favicon = document.querySelector("link[rel='icon']") as HTMLLinkElement;
+    if (favicon) {
+      favicon.href = isDark ? "/favicon-dark.ico" : "/favicon-light.ico";
+    }
+  }, [isDark]);
+
   const toggleTheme = () => {
     setIsDark(!isDark);
     if (isDark) {

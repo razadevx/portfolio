@@ -7,7 +7,7 @@ const Footer = () => {
     // Check initial theme
     const checkTheme = () => {
       const isLight = document.documentElement.classList.contains("light");
-      setTheme(isLight ? "light" : "dark");
+      setTheme(isLight ? "dark" : "light");
     };
 
     checkTheme();
