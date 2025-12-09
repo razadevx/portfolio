@@ -153,5 +153,5 @@ img.h-10.w-auto {
 }
 }
 .hover\:text-accent-foreground:hover {
-    color: #40baf9 !important;
+    color: #40baf9;
 }
