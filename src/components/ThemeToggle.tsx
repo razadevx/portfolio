@@ -7,29 +7,11 @@ const ThemeToggle = () => {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const darkMode = savedTheme !== "light";
-    
     if (savedTheme === "light") {
       setIsDark(false);
       document.documentElement.classList.add("light");
     }
-    
-    // Set favicon immediately on mount
-    const favicon = document.querySelector("link[rel='icon']") as HTMLLinkElement;
-    if (favicon) {
-      favicon.href = darkMode ? "/favicon-dark.ico" : "/favicon-light.ico";
-    }
   }, []);
-
-  // Update favicon when theme changes
-  useEffect(() => {
-    const favicon = document.querySelector("link[rel='icon']") as HTMLLinkElement;
-    if (favicon) {
-      // Force browser to reload favicon by adding timestamp
-      const newHref = isDark ? "/favicon-dark.ico" : "/favicon-light.ico";
-      favicon.href = newHref + "?v=" + new Date().getTime();
-    }
-  }, [isDark]);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
