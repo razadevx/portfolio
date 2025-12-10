@@ -56,8 +56,8 @@ const Portfolio = () => {
               Portfolio
             </div>
             <h2 className="text-4xl md:text-5xl font-bold">
-              My Work —{" "}
-              <span className="gradient-text">Crafted With Purpose</span>
+              Projects —{" "}
+              <span className="gradient-text">That Deliver Results</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               A glimpse into the websites I've designed and developed — clean
