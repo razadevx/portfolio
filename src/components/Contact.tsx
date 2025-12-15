@@ -55,20 +55,20 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "contact@razadevx.com",
-      href: "mailto:contact@razadevx.com",
+      value: "@razadeveloperx",
+      href: "mailto:razadeveloperx@gmail.com",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+92 300 1234567",
-      href: "tel:+923001234567",
+      value: "+92 326 7688920",
+      href: "tel:+923267688920",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Lahore, Pakistan",
-      href: "#",
+      value: "Gujrat, Pakistan",
+      href: "www.google.com/maps/place/Gujrat/data=!4m2!3m1!1s0x391f1b031e43442d:0x870fd23543d684c?sa=X&ved=1t:242&ictx=111",
     },
   ];
 
@@ -114,7 +114,7 @@ const Contact = () => {
               style={{ animationDelay: "0.2s" }}
             >
               <div className="space-y-6">
-                <h3 className="text-2xl font-bold">Contact Information</h3>
+                <h3 className="text-2xl font-bold">Contact Info</h3>
                 <p className="text-muted-foreground">
                   Feel free to reach out through any of these channels. I
                   typically respond within 24 hours.
@@ -146,7 +146,7 @@ const Contact = () => {
               </div>
 
               {/* Social Links */}
-              <div className="space-y-4 pt-4">
+              {/* <div className="space-y-4 pt-4">
                 <h4 className="text-lg font-semibold">Follow Me</h4>
                 <div className="flex gap-4">
                   {socialLinks.map((social) => (
@@ -160,7 +160,7 @@ const Contact = () => {
                     </a>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Decorative Element */}
               <div className="hidden lg:block relative mt-8">
