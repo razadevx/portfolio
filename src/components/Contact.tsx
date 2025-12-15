@@ -4,15 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Mail,
-  MessageSquare,
-  Github,
-  Linkedin,
-  Send,
-  MapPin,
-  Phone,
-} from "lucide-react";
+import { Mail, MessageSquare, Send, MapPin, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -72,10 +64,6 @@ const Contact = () => {
     },
   ];
 
-  const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-  ];
   return (
     <section
       id="contact"
@@ -144,23 +132,6 @@ const Contact = () => {
                   </a>
                 ))}
               </div>
-
-              {/* Social Links */}
-              {/* <div className="space-y-4 pt-4">
-                <h4 className="text-lg font-semibold">Follow Me</h4>
-                <div className="flex gap-4">
-                  {socialLinks.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      className="w-12 h-12 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 flex items-center justify-center hover:border-primary/50 hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/10"
-                      aria-label={social.label}
-                    >
-                      <social.icon className="w-5 h-5" />
-                    </a>
-                  ))}
-                </div>
-              </div> */}
 
               {/* Decorative Element */}
               <div className="hidden lg:block relative mt-8">
