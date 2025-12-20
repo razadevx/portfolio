@@ -1,5 +1,13 @@
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 import "./index.css";
+import ReactGA from "react-ga4";
 
-createRoot(document.getElementById("root")!).render(<App />);
+ReactGA.initialize("G-ZH3K9SCV16");
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
