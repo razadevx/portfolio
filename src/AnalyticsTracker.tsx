@@ -6,22 +6,17 @@ const AnalyticsTracker = () => {
   const location = useLocation();
 
   useEffect(() => {
-    ReactGA.send({
-      hitType: "pageview",
-      page: location.pathname,
-    });
-  }, [location]);
+    if (import.meta.env.MODE !== "development") {
+      ReactGA.send({
+        hitType: "pageview",
+        page: location.pathname,
+      });
+    } else {
+      console.log("GA4: Development mode - Pageview skipped for:", location.pathname);
+    }
+  }, [location.pathname]);
 
   return null;
 };
-
-useEffect(() => {
-  if (import.meta.env.MODE !== "development") {
-    ReactGA.send({
-      hitType: "pageview",
-      page: location.pathname,
-    });
-  }
-}, [location.pathname]);
 
 export default AnalyticsTracker;
