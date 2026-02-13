@@ -27,7 +27,7 @@ const About = () => {
               </div>
 
               <a
-                href="/Raza_DevX-Resume.pdf"
+                href="/RazaDevX_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
