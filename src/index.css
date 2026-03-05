@@ -59,7 +59,7 @@ All colors MUST be HSL.
     --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   .light {
-    --background: 210 40% 98%;
+    --background: 206 9% 85%;
     --foreground: 220 18% 10%;
 
     --card: 0 0% 100%;

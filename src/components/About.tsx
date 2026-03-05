@@ -12,17 +12,25 @@ const About = () => {
                 Bit About Me
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text">
-                Turning Ideas Into Interactive Designs
+              <h2 className="text-4xl md:text-5xl pb-2 font-bold gradient-text">
+                From Idea to Impactful Websites
               </h2>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  I’m passionate about turning ideas into interactive, meaningful websites. WordPress is my main tool, but my focus goes beyond just themes and plugins. I prioritize performance, usability, and clean craftsmanship to build websites that truly stand out.
+                  My journey into web development started with curiosity
+                  breaking down websites, experimenting with code, and learning
+                  how digital products truly work. What began with WordPress
+                  quickly grew into a deeper focus on performance, usability,
+                  and clean design.
                 </p>
 
                 <p>
-                  I specialize in creating strong foundations with SEO basics, optimized performance, thoughtful design, and scalable structure. Every project helps me grow—both technically and professionally. What sets me apart isn’t just my skills, but my patience, continuous learning mindset, and strong belief that small details create a big impact.
+                  Today I build everything from conversion-focused WordPress and
+                  Shopify websites to custom dashboards and web applications
+                  using the MERN stack. My goal is simple: create fast, reliable
+                  digital experiences that not only look great, but actually
+                  help businesses grow.
                 </p>
               </div>
 
@@ -54,7 +62,7 @@ const About = () => {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="text-4xl font-bold text-primary">2.5+</div>
+                    <div className="text-4xl font-bold text-primary">3+</div>
                     <div className="text-sm text-muted-foreground">
                       Years Experience
                     </div>
@@ -62,7 +70,7 @@ const About = () => {
                   <div className="col-span-2 space-y-2 pt-4 border-t border-border">
                     <div className="text-4xl font-bold text-primary">5+</div>
                     <div className="text-sm text-muted-foreground">
-                      Core Skills Mastered and still growing
+                      Core Technologies Mastered & Expanding
                     </div>
                   </div>
                 </div>

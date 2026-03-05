@@ -1,37 +1,37 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Figma, Code2, Bug, Zap, Palette, Shield } from "lucide-react";
+import { Globe, ShoppingCart, PenTool, Zap, Layers, Wrench } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: Figma,
-      title: "Figma to WordPress",
-      description: "Turning clean, modern Figma designs into fully responsive websites.",
-    },
-    {
-      icon: Code2,
+      icon: Globe,
       title: "Custom WordPress Development",
-      description: "I turn clean Figma or XD designs into fully responsive, pixel-perfect, and easy-to-manage WordPress websites.",
+      description: "High-performance WordPress websites built with clean architecture, optimized performance, and scalable structure for businesses that want reliable and easy-to-manage platforms.",
     },
     {
-      icon: Bug,
-      title: "Bug Fixing & Troubleshooting",
-      description: "Solving layout issues, plugin conflicts, database errors, and WordPress bugs with sharp attention to detail.",
+      icon: ShoppingCart,
+      title: "Shopify Store Development",
+      description: "Modern Shopify stores designed for conversions, smooth product management, and a seamless shopping experience that helps brands grow online.",
+    },
+    {
+      icon: PenTool,
+      title: "Figma / UI to Website",
+      description: "Transforming clean Figma or UI designs into fully responsive, pixel-perfect websites using modern development practices.",
     },
     {
       icon: Zap,
-      title: "Website Speed Optimization",
-      description: "Making websites load faster using best practices like caching, WebP, and minimal code.",
+      title: "Site Performance Optimization",
+      description: "Speed optimization, performance tuning, and technical improvements to ensure fast loading, better SEO rankings, and smooth user experience.",
     },
     {
-      icon: Palette,
-      title: "UI/UX Layout Design",
-      description: "Designing simple, intuitive, and conversion-focused interfaces that help brands stand out and users stay longer.",
+      icon: Layers,
+      title: "Custom Web Applications (MERN)",
+      description: "Building scalable dashboards, tools, and systems using the MERN stack (MongoDB, Express, React, Node.js) for businesses that need more than just a website.",
     },
     {
-      icon: Shield,
-      title: "Website Maintenance & Security",
-      description: "Regular updates, backups, and security monitoring to keep websites stable, safe, and up to date.",
+      icon: Wrench,
+      title: "Website Support & Improvements",
+      description: "Ongoing improvements, feature additions, and technical support to keep your website evolving as your business grows.",
     },
   ];
 
@@ -41,13 +41,13 @@ const Services = () => {
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-4 animate-fade-in-up">
             <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold">
-              What I Offer
+              Services
             </div>
             <h2 className="text-4xl md:text-5xl font-bold">
-              My Best <span className="gradient-text">Services</span>
+              How I Help Businesses <span className="gradient-text">Online</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A refined set of professional web solutions focused on clean design, high performance, and seamless user experience.
+              Professional web solutions. From high-performing CMS websites to custom web applications.
             </p>
           </div>
 
