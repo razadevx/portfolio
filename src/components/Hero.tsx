@@ -36,7 +36,7 @@ const Hero = () => {
               Conversion-Focused Websites
             </span>
 
-            <span className="block text-5xl leading-[1.15] md:text-7xl pb-2 gradient-text ">
+            <span className="block text-4xl leading-[1.15] md:text-7xl pb-2 gradient-text ">
               Building Modern 
             </span>
 
