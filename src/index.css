@@ -163,6 +163,15 @@ All colors MUST be HSL.
 img.h-10.w-auto {
   height: 3.6rem;
 }
+::selection {
+  background: rgba(67, 171, 237, 0.55);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(67, 171, 237, 0.55);
+  color: #fff;
+}
 @media (min-width: 1024px) {
   .lg\:text-8xl {
     font-size: 5rem !important;
