@@ -128,7 +128,7 @@ const Contact = () => {
                       <MessageSquare className="w-6 h-6 text-primary" />
                     </div>
 
-                    <span className="absolute -top-1 -right-1 h-3 w-3 bg-green-500 rounded-full animate-pulse" />
+                    <span className="absolute top-0 right-0 h-3 w-3 bg-green-500 rounded-full animate-pulse" />
 
                   </div>
 

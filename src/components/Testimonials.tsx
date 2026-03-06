@@ -105,7 +105,7 @@ const Testimonials = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold">
-            What Clients — <span className="gradient-text">Say</span>
+            What Clients  <span className="gradient-text">Say</span>
           </h2>
 
           <p className="text-muted-foreground max-w-2xl mx-auto">

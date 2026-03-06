@@ -124,7 +124,7 @@ const Portfolio = () => {
 
   const paginatedProjects = filtered.slice(
     (page - 1) * ITEMS_PER_PAGE,
-    page * ITEMS_PER_PAGE
+    page * ITEMS_PER_PAGE,
   );
 
   /* reset refs each render */
@@ -140,14 +140,13 @@ const Portfolio = () => {
         duration: 0.7,
         stagger: 0.08,
         ease: "power3.out",
-      }
+      },
     );
   }, [page, activeFilter]);
 
   return (
     <section id="work" className="py-24">
       <div className="container mx-auto px-6">
-
         {/* HEADER */}
         <div className="text-center mb-14">
           <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-4">
@@ -155,12 +154,13 @@ const Portfolio = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Selected Work —{" "}
+            Selected Work{" "}
             <span className="gradient-text">Built for Real Businesses</span>
           </h2>
 
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of websites and platforms I designed and developed. Focused on performance, usability, and real business needs.
+            A selection of websites and platforms I designed and developed.
+            Focused on performance, usability, and real business needs.
           </p>
         </div>
 
@@ -173,12 +173,12 @@ const Portfolio = () => {
                 setActiveFilter(filter);
                 setPage(1);
               }}
-              className={`px-5 py-2 rounded-full text-sm border transition
-              ${
-                activeFilter === filter
-                  ? "bg-primary text-white border-primary"
-                  : "border-border hover:border-primary hover:text-primary"
-              }`}
+              className={`px-5 py-2 rounded-full text-sm border transition-all duration-200
+      ${
+        activeFilter === filter
+          ? "bg-primary text-white border-primary shadow-sm"
+          : "border-border/60 bg-secondary/40 text-muted-foreground hover:bg-secondary hover:border-primary hover:text-primary hover:-translate-y-[1px]"
+      }`}
             >
               {filter}
             </button>
@@ -197,7 +197,6 @@ const Portfolio = () => {
               className="group"
             >
               <Card className="overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm">
-
                 <div className="relative aspect-video overflow-hidden">
                   <img
                     src={project.image}
@@ -237,7 +236,6 @@ const Portfolio = () => {
 
         {/* PREMIUM PAGINATION */}
         <div className="flex flex-col items-center gap-6 mt-16">
-
           <div className="flex items-center gap-3">
             {Array.from({ length: totalPages }).map((_, i) => {
               const pageNumber = i + 1;
@@ -283,9 +281,7 @@ const Portfolio = () => {
               Next →
             </button>
           </div>
-
         </div>
-
       </div>
     </section>
   );
