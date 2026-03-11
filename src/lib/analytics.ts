@@ -29,5 +29,5 @@ export const initClarity = () => {
 
     y = l.getElementsByTagName(r)[0];
     y.parentNode?.insertBefore(t, y);
-  })(window, document, "clarity", "script", "vtv161xvxm");
+  })(window, document, "clarity", "script", "vtv16lxvxm");
 };
