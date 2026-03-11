@@ -62,22 +62,22 @@ const projects = [
   },
 
   {
-    title: "Modern Fashion Store",
+    title: "Daily Maison",
     description:
-      "Conversion-focused Shopify store designed for smooth product browsing and fast checkout.",
+      "Store designed to showcase premium home and lifestyle products with a smooth shopping experience and optimized product discovery.",
     category: "Shopify",
     tech: ["Shopify", "Liquid"],
-    image: "/shopify-fashion.webp",
-    link: "#",
+    image: "/hero-daily-maison.webp",
+    link: "https://dailymaison.com",
   },
   {
-    title: "Beauty Products Store",
+    title: "Direct Drop",
     description:
-      "Clean Shopify storefront built to showcase beauty products with strong product presentation.",
+      "Shopify dropshipping store optimized for product visibility, fast navigation, and seamless checkout performance.",
     category: "Shopify",
     tech: ["Shopify", "Liquid"],
-    image: "/shopify-beauty.webp",
-    link: "#",
+    image: "/hero-direct-drop.webp",
+    link: "https://directdrop.net",
   },
 
   {
@@ -86,8 +86,8 @@ const projects = [
       "Full MERN stack ERP system to manage inventory, accounting and production workflows.",
     category: "Web Apps",
     tech: ["React", "Node.js", "MongoDB"],
-    image: "/erp-dashboard.webp",
-    link: "#",
+    image: "/store-admin-panel.webp",
+    // link: "#",
   },
   {
     title: "Analytics Dashboard",
@@ -95,8 +95,8 @@ const projects = [
       "Business analytics dashboard built with React to visualize data and track performance.",
     category: "Web Apps",
     tech: ["React", "Node.js"],
-    image: "/analytics-dashboard.webp",
-    link: "#",
+    image: "/custom-store-admin-panel.webp",
+    // link: "#",
   },
 ];
 
