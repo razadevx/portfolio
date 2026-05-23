@@ -88,7 +88,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="py-20 md:py-32 bg-card/30 relative overflow-hidden"
+      className="section-glow section-glow-left relative overflow-hidden py-24 md:py-28"
     >
       {/* Background glow */}
       <div className="absolute inset-0">
@@ -100,11 +100,11 @@ const Testimonials = () => {
 
         {/* Header */}
         <div className="text-center space-y-4">
-          <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold">
+          <div className="liquid-pill inline-block rounded-full px-4 py-2 text-sm font-semibold text-primary">
             Testimonials
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold">
+          <h2 className="text-4xl font-bold tracking-[-0.03em] md:text-5xl">
             What Clients  <span className="gradient-text">Say</span>
           </h2>
 
@@ -132,7 +132,7 @@ const Testimonials = () => {
             {visibleTestimonials.map((testimonial, i) => (
               <div
                 key={`${currentIndex}-${i}`}
-                className="relative bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl p-8 overflow-hidden transition duration-300 hover:border-primary/40 hover:bg-card/70"
+                className="liquid-panel-soft relative overflow-hidden rounded-[28px] p-8 transition duration-300 hover:border-primary/40"
               >
                 {/* Quote decoration */}
                 <Quote className="absolute -top-2 -right-2 w-24 h-24 text-primary opacity-20" />

@@ -33,14 +33,14 @@ const Technologies = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="py-20 md:py-32 overflow-hidden">
+    <section className="section-glow section-glow-left overflow-hidden py-24 md:py-28">
       <div className="container mx-auto px-4 md:px-6 mb-12">
         <div className="text-center space-y-4 animate-fade-in-up">
-          <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold">
+          <div className="liquid-pill inline-block rounded-full px-4 py-2 text-sm font-semibold text-primary">
             Tech Stack
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold">
+          <h2 className="text-4xl font-bold tracking-[-0.03em] md:text-5xl">
             Technologies I <span className="gradient-text">Work With</span>
           </h2>
 
@@ -73,7 +73,7 @@ const Technologies = () => {
           >
             {[...technologies.row1, ...technologies.row1].map((tech, index) => (
               <div key={`row1-${index}`} className="flex-shrink-0 group">
-                <div className="flex items-center gap-3 px-6 py-4 bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl hover:border-primary/50 hover:bg-card/80 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10">
+                <div className="liquid-panel-soft flex items-center gap-3 rounded-2xl px-6 py-4 transition-all duration-300 hover:scale-105 hover:border-primary/40">
                   <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
                     {tech.icon}
                   </span>
@@ -101,7 +101,7 @@ const Technologies = () => {
           >
             {[...technologies.row2, ...technologies.row2].map((tech, index) => (
               <div key={`row2-${index}`} className="flex-shrink-0 group">
-                <div className="flex items-center gap-3 px-6 py-4 bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl hover:border-primary/50 hover:bg-card/80 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10">
+                <div className="liquid-panel-soft flex items-center gap-3 rounded-2xl px-6 py-4 transition-all duration-300 hover:scale-105 hover:border-primary/40">
                   <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
                     {tech.icon}
                   </span>

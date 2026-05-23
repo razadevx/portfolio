@@ -17,7 +17,7 @@ const WhatsAppButton = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 md:bottom-1/4 z-20 flex flex-col items-end gap-4">
+    <div className="fixed bottom-6 right-6 z-20 flex flex-col items-end gap-4">
       {/* Chat Popup */}
       <AnimatePresence>
         {isOpen && (
@@ -98,13 +98,13 @@ const WhatsAppButton = () => {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="relative w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg group pointer-events-auto"
+        className="relative h-[53px] w-[53px] rounded-full bg-[#25D366] flex items-center justify-center shadow-[0_16px_36px_rgba(37,211,102,0.32)] group pointer-events-auto"
       >
         {/* Pulse Ring */}
-        <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-10" />
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-15" />
         
         {/* Glow Effect */}
-        <span className="absolute inset-0 rounded-full bg-primary blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-300" />
+        <span className="absolute inset-0 rounded-full bg-[#25D366] blur-md opacity-25 group-hover:opacity-45 transition-opacity duration-300" />
         
         {/* Icon */}
         <motion.div

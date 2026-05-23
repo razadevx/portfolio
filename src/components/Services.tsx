@@ -36,14 +36,14 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-background to-secondary/30">
+    <section id="services" className="section-glow relative py-24 md:py-28">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-4 animate-fade-in-up">
-            <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold">
+            <div className="liquid-pill inline-block rounded-full px-4 py-2 text-sm font-semibold text-primary">
               Services
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold">
+            <h2 className="text-4xl font-bold tracking-[-0.03em] md:text-5xl">
               How I Help Businesses <span className="gradient-text">Online</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -55,7 +55,7 @@ const Services = () => {
             {services.map((service, index) => (
               <Card 
                 key={index} 
-                className="card-hover border-border/50 bg-card/50 backdrop-blur-sm animate-fade-in-up"
+                className="liquid-panel-soft card-hover animate-fade-in-up rounded-[26px]"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>

@@ -145,15 +145,15 @@ const Portfolio = () => {
   }, [page, activeFilter]);
 
   return (
-    <section id="work" className="py-24">
+    <section id="work" className="section-glow relative py-24 md:py-28">
       <div className="container mx-auto px-6">
         {/* HEADER */}
         <div className="text-center mb-14">
-          <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-4">
+          <div className="liquid-pill mb-4 inline-block rounded-full px-4 py-2 text-sm font-semibold text-primary">
             Portfolio
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="mb-4 text-4xl font-bold tracking-[-0.03em] md:text-5xl">
             Selected Work{" "}
             <span className="gradient-text">Built for Real Businesses</span>
           </h2>
@@ -176,8 +176,8 @@ const Portfolio = () => {
               className={`px-5 py-2 rounded-full text-sm border transition-all duration-200
       ${
         activeFilter === filter
-          ? "bg-primary text-white border-primary shadow-sm"
-          : "border-border/60 bg-secondary/40 text-muted-foreground hover:bg-secondary hover:border-primary hover:text-primary hover:-translate-y-[1px]"
+          ? "liquid-pill text-primary-foreground border-primary/40 shadow-sm"
+          : "liquid-panel-soft text-muted-foreground hover:border-primary hover:text-primary hover:-translate-y-[1px]"
       }`}
             >
               {filter}
@@ -196,7 +196,7 @@ const Portfolio = () => {
               ref={(el) => (cardsRef.current[i] = el)}
               className="group"
             >
-              <Card className="overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm">
+              <Card className="liquid-panel-soft overflow-hidden rounded-[26px]">
                 <div className="relative aspect-video overflow-hidden">
                   <img
                     src={project.image}

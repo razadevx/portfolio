@@ -3,17 +3,20 @@ import { Button } from "@/components/ui/button";
 
 const About = () => {
   return (
-    <section id="about" className="py-24 relative">
+    <section
+      id="about"
+      className="section-glow section-glow-left relative -mt-10 py-24 md:-mt-14 md:py-28"
+    >
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in-up">
-              <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold">
+              <div className="liquid-pill inline-block rounded-full px-4 py-2 text-sm font-semibold text-primary">
                 Bit About Me
               </div>
 
-              <h2 className="text-4xl md:text-5xl pb-2 font-bold gradient-text">
-                From Idea to Impactful Websites
+              <h2 className="pb-2 text-4xl font-bold tracking-[-0.03em] md:text-5xl">
+                <span className="gradient-text">From Idea to Impactful Websites</span>
               </h2>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -53,7 +56,7 @@ const About = () => {
               className="relative animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <div className="relative p-8 rounded-2xl bg-gradient-to-br from-card to-secondary border border-border hover-glow">
+              <div className="liquid-panel relative rounded-[28px] p-8 hover-glow">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <div className="text-4xl font-bold text-primary">50+</div>
@@ -78,7 +81,7 @@ const About = () => {
 
               {/* Decorative Elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl" />
+              <div className="absolute -bottom-4 -left-4 h-32 w-32 rounded-full bg-primary/20 blur-2xl" />
             </div>
           </div>
         </div>

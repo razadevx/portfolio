@@ -42,7 +42,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="relative py-28 overflow-hidden">
+    <section id="contact" className="section-glow relative overflow-hidden py-24 md:py-28">
 
       {/* Background glow */}
 
@@ -56,11 +56,11 @@ const Contact = () => {
 
           <div className="text-center space-y-5">
 
-            <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold">
+            <div className="liquid-pill inline-block rounded-full px-4 py-2 text-sm font-semibold text-primary">
               Get In Touch
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold">
+            <h2 className="text-4xl font-bold tracking-[-0.03em] md:text-5xl">
               Have a Project in Mind?{" "}
               <span className="gradient-text">Let's Talk.</span>
             </h2>
@@ -94,11 +94,7 @@ const Contact = () => {
                 <a
                   key={info.label}
                   href={info.href}
-                  className="flex items-center gap-4 p-5 rounded-xl 
-                  bg-card/60 backdrop-blur 
-                  border border-border 
-                  hover:border-primary/40 
-                  transition-all duration-300"
+                  className="liquid-panel-soft flex items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:border-primary/40"
                 >
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <info.icon className="w-5 h-5 text-primary" />
@@ -118,7 +114,7 @@ const Contact = () => {
 
               {/* Availability */}
 
-              <Card className="p-6 border border-primary/20 bg-card/70 backdrop-blur">
+              <Card className="liquid-panel rounded-[28px] p-6 border-primary/20">
 
                 <div className="flex items-center gap-4">
 
@@ -152,7 +148,7 @@ const Contact = () => {
 
             {/* RIGHT SIDE FORM */}
 
-            <Card className="p-8 bg-card/70 backdrop-blur border border-border shadow-xl">
+            <Card className="liquid-panel rounded-[30px] p-8 shadow-xl">
 
               <form
                 ref={formRef}

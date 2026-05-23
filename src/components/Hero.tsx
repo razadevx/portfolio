@@ -1,5 +1,22 @@
+import { ArrowRight } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import HeroVortexCanvas from "./HeroVortexCanvas";
+
+const galaxyStars = [
+  { top: "14%", left: "18%", size: 2, delay: "0s", duration: "6s" },
+  { top: "24%", left: "72%", size: 3, delay: "1.2s", duration: "7s" },
+  { top: "30%", left: "38%", size: 2, delay: "0.8s", duration: "5.8s" },
+  { top: "36%", left: "84%", size: 2, delay: "2.1s", duration: "6.6s" },
+  { top: "42%", left: "12%", size: 3, delay: "1.6s", duration: "7.4s" },
+  { top: "52%", left: "65%", size: 2, delay: "0.4s", duration: "6.8s" },
+  { top: "58%", left: "24%", size: 2, delay: "2.5s", duration: "5.6s" },
+  { top: "68%", left: "79%", size: 3, delay: "1.1s", duration: "7.8s" },
+  { top: "74%", left: "48%", size: 2, delay: "2.8s", duration: "6.2s" },
+  { top: "80%", left: "16%", size: 2, delay: "0.7s", duration: "5.9s" },
+  { top: "20%", left: "52%", size: 1.5, delay: "1.9s", duration: "5.4s" },
+  { top: "62%", left: "90%", size: 1.5, delay: "2.3s", duration: "6.9s" },
+];
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -12,79 +29,98 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="relative min-h-[100svh] overflow-hidden bg-background pb-16 pt-28 md:pb-20 md:pt-32"
     >
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(6,182,212,0.15),transparent_50%)]" />
+      <div className="hero-galaxy-scene absolute inset-0" aria-hidden="true">
+        <div className="hero-galaxy-vignette absolute inset-0" />
 
-      <div className="container mx-auto px-6 py-32 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          {/* Availability Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm animate-fade-in">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </span>
+        <div className="hero-galaxy-mask absolute inset-[-8%]">
+          <HeroVortexCanvas
+            className="absolute -right-[18%] -top-[22%] aspect-square w-[78vw] min-w-[760px] max-w-[1280px] md:-right-[14%] md:-top-[26%] lg:-right-[10%] lg:-top-[28%]"
+          />
 
-            <span>Available for New Projects</span>
-          </div>
-
-          {/* Headline */}
-          <h1 className="font-bold leading-tight animate-fade-in-up">
-            <span className="block text-[2rem] md:text-4xl mb-3">
-              Conversion-Focused Websites
-            </span>
-
-            <span className="block text-4xl leading-[1.15] md:text-7xl pb-2 gradient-text ">
-              Building Modern 
-            </span>
-
-            <span className="block text-4xl leading-[1.15] md:text-7xl">
-              Web Experiences
-            </span>
-          </h1>
-
-          {/* Subtext */}
-          <p
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up"
-            style={{ animationDelay: "0.2s" }}
-          >
-            I help businesses turn ideas into fast, scalable digital products ._. from high-performing WordPress & Shopify websites to custom MERN stack web applications and systems built for real growth.
-          </p>
-          
-          {/* CTA Buttons */}
-          <div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
-            style={{ animationDelay: "0.4s" }}
-          >
-            <Button
-              size="lg"
-              className="hover-glow text-lg px-8 py-6 group"
-              onClick={() => scrollToSection("contact")}
-            >
-              Start Your Project
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-lg px-8 py-6 border-primary/30 hover:border-primary hover:bg-primary/10"
-              onClick={() => scrollToSection("work")}
-            >
-              View My Work
-            </Button>
+          <div className="absolute inset-0">
+            {galaxyStars.map((star, index) => (
+              <span
+                key={index}
+                className="hero-star absolute rounded-full bg-white motion-reduce:animate-none"
+                style={{
+                  top: star.top,
+                  left: star.left,
+                  width: `${star.size}px`,
+                  height: `${star.size}px`,
+                  animationDelay: star.delay,
+                  animationDuration: star.duration,
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Animated Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[100px] animate-float" />
-      <div
-        className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px] animate-float"
-        style={{ animationDelay: "1s" }}
-      />
+      <div className="container relative z-10 mx-auto flex min-h-[calc(100svh-7rem)] items-center px-6 pb-12 md:min-h-[calc(100svh-8rem)] md:pb-14">
+        <div className="w-full max-w-[54rem] text-left">
+          <div className="liquid-pill inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm text-primary">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 motion-reduce:animate-none" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+            </span>
+            <span>Available for New Projects</span>
+          </div>
+
+          <div className="mt-8 max-w-[46rem] space-y-6 md:mt-10">
+            <div className="space-y-4 md:space-y-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.32em] text-primary/75">
+                Conversion-Focused Websites
+              </p>
+
+              <h1 className="animate-fade-in-up max-w-[13ch] text-[3.2rem] font-bold leading-[0.94] tracking-[-0.04em] sm:text-[4.1rem] md:text-[4.8rem] lg:text-[5.35rem]">
+                <span className="block whitespace-nowrap text-foreground">
+                  Building Modern
+                </span>
+                <span className="hero-title-glow mt-2 block whitespace-nowrap">
+                  Web Experiences
+                </span>
+              </h1>
+            </div>
+
+            <p
+              className="max-w-[36rem] text-lg leading-relaxed text-muted-foreground md:text-[1.16rem]"
+              style={{ animationDelay: "0.2s" }}
+            >
+              I help businesses turn ideas into fast, scalable digital products
+              from high-performing WordPress and Shopify websites to custom MERN
+              stack applications built for real growth.
+            </p>
+
+            <div
+              className="flex flex-col items-start gap-4 sm:flex-row"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <Button
+                size="lg"
+                className="hover-glow h-14 rounded-full px-9 text-lg font-semibold group"
+                onClick={() => scrollToSection("contact")}
+              >
+                Start Your Project
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-14 rounded-full border-primary/25 bg-background/20 px-9 text-lg backdrop-blur-sm hover:border-primary hover:bg-primary/10"
+                onClick={() => scrollToSection("work")}
+              >
+                View My Work
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 bg-gradient-to-b from-transparent via-background/55 to-background" />
+      <div className="pointer-events-none absolute bottom-[-8rem] left-[18%] z-[1] h-56 w-56 rounded-full bg-primary/10 blur-[110px]" />
     </section>
   );
 };

@@ -29,7 +29,7 @@ const ThemeToggle = () => {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="relative overflow-hidden group"
+      className="relative overflow-hidden rounded-full group hover:bg-white/[0.08] hover:text-foreground"
       aria-label="Toggle theme"
     >
       <Sun

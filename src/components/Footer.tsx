@@ -41,7 +41,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-16 mt-24 border-t border-border/40 bg-secondary/30 backdrop-blur-sm shadow-[0_-8px_30px_rgba(0,0,0,0.02)]">
+    <footer className="liquid-panel-soft relative mt-20 border-t border-border/40 py-16 shadow-[0_-8px_30px_rgba(0,0,0,0.02)]">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Logo & Info */}
