@@ -68,11 +68,13 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
     let particles: Particle[] = [];
     let devicePixelRatio = 1;
     let isVisible = true;
+    let isMobile = false;
 
     const buildParticles = () => {
+      isMobile = window.innerWidth < 640;
       const particleCount = Math.max(
-        120,
-        Math.min(260, Math.floor((width + height) * 0.16)),
+        isMobile ? 70 : 120,
+        Math.min(isMobile ? 140 : 260, Math.floor((width + height) * (isMobile ? 0.1 : 0.16))),
       );
 
       particles = Array.from({ length: particleCount }, () =>
@@ -85,7 +87,8 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
       width = bounds.width;
       height = bounds.height;
       maxRadius = Math.min(width, height) * 0.44;
-      devicePixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+      isMobile = window.innerWidth < 640;
+      devicePixelRatio = Math.min(window.devicePixelRatio || 1, isMobile ? 1.1 : 1.5);
 
       canvas.width = Math.max(1, Math.floor(width * devicePixelRatio));
       canvas.height = Math.max(1, Math.floor(height * devicePixelRatio));

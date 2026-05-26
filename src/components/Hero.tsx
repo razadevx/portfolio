@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import HeroVortexCanvas from "./HeroVortexCanvas";
 
 const galaxyStars = [
@@ -29,21 +30,24 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] overflow-hidden bg-background pb-16 pt-28 md:pb-20 md:pt-32"
+      className="relative min-h-[100svh] overflow-hidden bg-background pb-14 pt-36 md:pb-20 md:pt-32"
     >
       <div className="hero-galaxy-scene absolute inset-0" aria-hidden="true">
         <div className="hero-galaxy-vignette absolute inset-0" />
 
         <div className="hero-galaxy-mask absolute inset-[-8%]">
           <HeroVortexCanvas
-            className="absolute -right-[18%] -top-[22%] aspect-square w-[78vw] min-w-[760px] max-w-[1280px] md:-right-[14%] md:-top-[26%] lg:-right-[10%] lg:-top-[28%]"
+            className="absolute -right-[34%] top-[2%] aspect-square w-[96vw] min-w-0 opacity-85 sm:-right-[18%] sm:-top-[22%] sm:w-[78vw] sm:opacity-100 sm:min-w-[760px] sm:max-w-[1280px] md:-right-[14%] md:-top-[26%] lg:-right-[10%] lg:-top-[28%]"
           />
 
           <div className="absolute inset-0">
             {galaxyStars.map((star, index) => (
               <span
                 key={index}
-                className="hero-star absolute rounded-full bg-white motion-reduce:animate-none"
+                className={cn(
+                  "hero-star absolute rounded-full bg-white motion-reduce:animate-none",
+                  index > 5 && "hidden sm:block",
+                )}
                 style={{
                   top: star.top,
                   left: star.left,
@@ -58,9 +62,9 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="container relative z-10 mx-auto flex min-h-[calc(100svh-7rem)] items-center px-6 pb-12 md:min-h-[calc(100svh-8rem)] md:pb-14">
+      <div className="container relative z-10 mx-auto flex min-h-[calc(100svh-9rem)] items-center px-5 pb-12 md:min-h-[calc(100svh-8rem)] md:px-6 md:pb-14">
         <div className="w-full max-w-[54rem] text-left">
-          <div className="liquid-pill inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm text-primary">
+          <div className="liquid-pill inline-flex max-w-full items-center gap-2 rounded-full px-4 py-2 text-xs text-primary sm:px-5 sm:text-sm">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 motion-reduce:animate-none" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
@@ -68,24 +72,24 @@ const Hero = () => {
             <span>Available for New Projects</span>
           </div>
 
-          <div className="mt-8 max-w-[46rem] space-y-6 md:mt-10">
+          <div className="mt-7 max-w-[46rem] space-y-6 md:mt-10">
             <div className="space-y-4 md:space-y-5">
-              <p className="text-sm font-semibold uppercase tracking-[0.32em] text-primary/75">
+              <p className="max-w-[18rem] text-xs font-semibold uppercase tracking-[0.28em] text-primary/75 sm:max-w-none sm:text-sm sm:tracking-[0.32em]">
                 Conversion-Focused Websites
               </p>
 
-              <h1 className="animate-fade-in-up max-w-[13ch] text-[3.2rem] font-bold leading-[0.94] tracking-[-0.04em] sm:text-[4.1rem] md:text-[4.8rem] lg:text-[5.35rem]">
-                <span className="block whitespace-nowrap text-foreground">
+              <h1 className="animate-fade-in-up max-w-[11ch] text-[clamp(3rem,16vw,4.15rem)] font-bold leading-[0.92] tracking-[-0.05em] sm:max-w-[13ch] sm:text-[4.1rem] md:text-[4.8rem] lg:text-[5.35rem]">
+                <span className="block text-foreground">
                   Building Modern
                 </span>
-                <span className="hero-title-glow mt-2 block whitespace-nowrap">
+                <span className="hero-title-glow mt-2 block">
                   Web Experiences
                 </span>
               </h1>
             </div>
 
             <p
-              className="max-w-[36rem] text-lg leading-relaxed text-muted-foreground md:text-[1.16rem]"
+              className="max-w-[22rem] text-[1.02rem] leading-relaxed text-muted-foreground sm:max-w-[30rem] md:max-w-[36rem] md:text-[1.16rem]"
               style={{ animationDelay: "0.2s" }}
             >
               I help businesses turn ideas into fast, scalable digital products
@@ -94,12 +98,12 @@ const Hero = () => {
             </p>
 
             <div
-              className="flex flex-col items-start gap-4 sm:flex-row"
+              className="flex flex-col items-stretch gap-4 sm:items-start sm:flex-row"
               style={{ animationDelay: "0.4s" }}
             >
               <Button
                 size="lg"
-                className="hover-glow h-14 rounded-full px-9 text-lg font-semibold group"
+                className="hover-glow h-14 w-full rounded-full px-8 text-base font-semibold group sm:w-auto sm:px-9 sm:text-lg"
                 onClick={() => scrollToSection("contact")}
               >
                 Start Your Project
@@ -109,7 +113,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="h-14 rounded-full border-primary/25 bg-background/20 px-9 text-lg backdrop-blur-sm hover:border-primary hover:bg-primary/10"
+                className="h-14 w-full rounded-full border-primary/25 bg-background/20 px-8 text-base backdrop-blur-sm hover:border-primary hover:bg-primary/10 sm:w-auto sm:px-9 sm:text-lg"
                 onClick={() => scrollToSection("work")}
               >
                 View My Work
