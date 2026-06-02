@@ -11,6 +11,7 @@ type Particle = {
   armOffset: number;
   color: string;
   drift: number;
+  lightColor: string;
   radius: number;
   size: number;
   speed: number;
@@ -19,20 +20,22 @@ type Particle = {
 };
 
 const ARM_COUNT = 4;
-const TARGET_FPS = 30;
+const TARGET_FPS = 24;
 const FRAME_TIME = 1000 / TARGET_FPS;
 
 const createParticle = (maxRadius: number): Particle => {
   const radius = Math.pow(Math.random(), 0.78) * maxRadius;
   const arm = Math.floor(Math.random() * ARM_COUNT);
-  const hue = 186 + Math.random() * 22;
-  const lightness = 66 + Math.random() * 18;
+  const hue = 181 + Math.random() * 12;
+  const lightness = 58 + Math.random() * 22;
+  const lightModeLightness = 34 + Math.random() * 14;
 
   return {
     angle: Math.random() * Math.PI * 2,
     armOffset: (arm / ARM_COUNT) * Math.PI * 2 + (Math.random() - 0.5) * 0.72,
     color: `hsl(${hue} 100% ${lightness}%)`,
     drift: 0.16 + Math.random() * 0.54,
+    lightColor: `hsl(${hue} 100% ${lightModeLightness}%)`,
     radius,
     size: 0.7 + Math.random() * 2.1,
     speed: 0.14 + (1 - radius / maxRadius) * 0.28 + Math.random() * 0.08,
@@ -69,12 +72,18 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
     let devicePixelRatio = 1;
     let isVisible = true;
     let isMobile = false;
+    let isLightTheme = document.documentElement.classList.contains("light");
+    let shadowEnabled = true;
+
+    const updateTheme = () => {
+      isLightTheme = document.documentElement.classList.contains("light");
+    };
 
     const buildParticles = () => {
       isMobile = window.innerWidth < 640;
       const particleCount = Math.max(
-        isMobile ? 70 : 120,
-        Math.min(isMobile ? 140 : 260, Math.floor((width + height) * (isMobile ? 0.1 : 0.16))),
+        isMobile ? 44 : 84,
+        Math.min(isMobile ? 92 : 150, Math.floor((width + height) * (isMobile ? 0.064 : 0.092))),
       );
 
       particles = Array.from({ length: particleCount }, () =>
@@ -88,7 +97,8 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
       height = bounds.height;
       maxRadius = Math.min(width, height) * 0.44;
       isMobile = window.innerWidth < 640;
-      devicePixelRatio = Math.min(window.devicePixelRatio || 1, isMobile ? 1.1 : 1.5);
+      shadowEnabled = !isMobile;
+      devicePixelRatio = Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 1.2);
 
       canvas.width = Math.max(1, Math.floor(width * devicePixelRatio));
       canvas.height = Math.max(1, Math.floor(height * devicePixelRatio));
@@ -109,10 +119,17 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
         centerY,
         maxRadius * 1.04,
       );
-      outerGlow.addColorStop(0, "rgba(177, 246, 255, 0.16)");
-      outerGlow.addColorStop(0.28, "rgba(54, 205, 255, 0.13)");
-      outerGlow.addColorStop(0.6, "rgba(23, 92, 154, 0.08)");
-      outerGlow.addColorStop(1, "rgba(5, 12, 24, 0)");
+      if (isLightTheme) {
+        outerGlow.addColorStop(0, "rgba(0, 206, 229, 0.24)");
+        outerGlow.addColorStop(0.3, "rgba(0, 150, 168, 0.19)");
+        outerGlow.addColorStop(0.62, "rgba(0, 92, 104, 0.11)");
+        outerGlow.addColorStop(1, "rgba(0, 44, 52, 0)");
+      } else {
+        outerGlow.addColorStop(0, "rgba(206, 251, 255, 0.18)");
+        outerGlow.addColorStop(0.28, "rgba(0, 206, 229, 0.15)");
+        outerGlow.addColorStop(0.6, "rgba(0, 122, 136, 0.09)");
+        outerGlow.addColorStop(1, "rgba(5, 12, 24, 0)");
+      }
 
       context.fillStyle = outerGlow;
       context.beginPath();
@@ -135,12 +152,19 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
       context.save();
       context.translate(x, y);
       context.rotate(tangent);
-      context.globalAlpha = particle.trailAlpha * (0.66 + innerFade * 0.5);
-      context.strokeStyle = particle.color;
-      context.lineWidth = particle.size;
+      context.globalAlpha = Math.min(
+        0.92,
+        particle.trailAlpha * (0.66 + innerFade * 0.5) * (isLightTheme ? 1.95 : 1),
+      );
+      context.strokeStyle = isLightTheme ? particle.lightColor : particle.color;
+      context.lineWidth = particle.size * (isLightTheme ? 1.16 : 1);
       context.lineCap = "round";
-      context.shadowBlur = 8 + particle.radius * 0.024;
-      context.shadowColor = particle.color;
+      context.shadowBlur = shadowEnabled
+        ? (isLightTheme ? 6 : 4) + particle.radius * (isLightTheme ? 0.016 : 0.012)
+        : 0;
+      if (shadowEnabled) {
+        context.shadowColor = isLightTheme ? "rgba(0, 184, 205, 0.56)" : particle.color;
+      }
       context.beginPath();
       context.moveTo(-particle.stretch, 0);
       context.lineTo(particle.stretch, particle.drift);
@@ -160,10 +184,10 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
         centerRadius * 1.24,
       );
       ringGlow.addColorStop(0, "rgba(255,255,255,0.95)");
-      ringGlow.addColorStop(0.35, "rgba(178,248,255,0.92)");
-      ringGlow.addColorStop(0.58, "rgba(70,221,255,0.76)");
-      ringGlow.addColorStop(0.74, "rgba(70,221,255,0.1)");
-      ringGlow.addColorStop(1, "rgba(70,221,255,0)");
+      ringGlow.addColorStop(0.35, "rgba(206,251,255,0.92)");
+      ringGlow.addColorStop(0.58, "rgba(0,206,229,0.78)");
+      ringGlow.addColorStop(0.74, "rgba(0,206,229,0.12)");
+      ringGlow.addColorStop(1, "rgba(0,206,229,0)");
 
       context.fillStyle = ringGlow;
       context.beginPath();
@@ -173,7 +197,7 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
       context.strokeStyle = "rgba(217, 253, 255, 0.9)";
       context.lineWidth = Math.max(4, centerRadius * 0.1);
       context.shadowBlur = 20;
-      context.shadowColor = "rgba(110, 235, 255, 0.56)";
+      context.shadowColor = "rgba(0, 206, 229, 0.58)";
       context.beginPath();
       context.arc(0, 0, centerRadius, 0, Math.PI * 2);
       context.stroke();
@@ -291,9 +315,20 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
       },
       { threshold: 0.02 },
     );
+    const themeObserver = new MutationObserver(() => {
+      updateTheme();
+
+      if (reducedMotion && isVisible) {
+        renderFrame(0);
+      }
+    });
 
     resizeCanvas();
     intersectionObserver.observe(canvas);
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
     document.addEventListener("visibilitychange", handleVisibilityChange);
     window.addEventListener("resize", resizeCanvas);
     motionQuery.addEventListener("change", handleMotionChange);
@@ -307,6 +342,7 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
     return () => {
       stopAnimation();
       intersectionObserver.disconnect();
+      themeObserver.disconnect();
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("resize", resizeCanvas);
       motionQuery.removeEventListener("change", handleMotionChange);

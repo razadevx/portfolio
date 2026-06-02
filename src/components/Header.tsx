@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
 import ThemeToggle from "./ThemeToggle";
@@ -18,28 +18,66 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [activeSection, setActiveSection] = useState("home");
+  const activeSectionRef = useRef(activeSection);
+  const isScrolledRef = useRef(isScrolled);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let animationFrame = 0;
+    let sectionPositions: { id: string; top: number }[] = [];
+
+    const updateSectionPositions = () => {
+      sectionPositions = navItems
+        .map((item) => {
+          const section = document.getElementById(item.id);
+          return section ? { id: item.id, top: section.offsetTop } : null;
+        })
+        .filter(Boolean) as { id: string; top: number }[];
+    };
+
+    const readScrollState = () => {
       const scrollPosition = window.scrollY + 160;
-      setIsScrolled(window.scrollY > 18);
+      const nextScrolled = window.scrollY > 18;
 
-      let currentSection = navItems[0].id;
+      if (nextScrolled !== isScrolledRef.current) {
+        isScrolledRef.current = nextScrolled;
+        setIsScrolled(nextScrolled);
+      }
 
-      for (const item of navItems) {
-        const section = document.getElementById(item.id);
-        if (section && section.offsetTop <= scrollPosition) {
-          currentSection = item.id;
+      let currentSection = sectionPositions[0]?.id ?? navItems[0].id;
+
+      for (const section of sectionPositions) {
+        if (section.top <= scrollPosition) {
+          currentSection = section.id;
         }
       }
 
-      setActiveSection(currentSection);
+      if (currentSection !== activeSectionRef.current) {
+        activeSectionRef.current = currentSection;
+        setActiveSection(currentSection);
+      }
     };
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      if (animationFrame) {
+        return;
+      }
 
-    return () => window.removeEventListener("scroll", handleScroll);
+      animationFrame = window.requestAnimationFrame(() => {
+        animationFrame = 0;
+        readScrollState();
+      });
+    };
+
+    updateSectionPositions();
+    readScrollState();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", updateSectionPositions, { passive: true });
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateSectionPositions);
+    };
   }, []);
 
   useEffect(() => {
@@ -104,7 +142,7 @@ const Header = () => {
           <div
             className={cn(
               "absolute -right-8 bottom-0 h-16 w-16 rounded-full blur-3xl",
-              isLightTheme ? "bg-blue-500/8" : "bg-blue-500/10",
+              isLightTheme ? "bg-primary/8" : "bg-primary/10",
             )}
           />
 
@@ -133,7 +171,7 @@ const Header = () => {
                     className={cn(
                       "rounded-full px-4 py-2.5 text-sm font-medium transition-all duration-300",
                       activeSection === item.id
-                        ? "bg-primary text-primary-foreground shadow-[0_10px_24px_rgba(6,182,212,0.22)]"
+                        ? "bg-primary text-primary-foreground shadow-[0_10px_24px_rgba(0,206,229,0.24)]"
                         : "text-muted-foreground hover:text-foreground",
                     )}
                   >
@@ -157,7 +195,7 @@ const Header = () => {
 
               <Button
                 onClick={() => scrollToSection("contact")}
-                className="h-11 rounded-full px-5 text-sm font-semibold shadow-[0_14px_34px_rgba(6,182,212,0.18)]"
+                className="h-11 rounded-full px-5 text-sm font-semibold shadow-[0_14px_34px_rgba(0,206,229,0.22)]"
               >
                 Let&apos;s Talk
                 <ArrowUpRight className="h-4 w-4" />

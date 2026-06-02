@@ -36,7 +36,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-glow relative py-24 md:py-28">
+    <section id="services" className="perf-section section-glow relative py-24 md:py-28">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-4 animate-fade-in-up">

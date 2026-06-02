@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 const testimonials = [
@@ -49,19 +49,19 @@ const Testimonials = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const next = () => {
+  const next = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [isAnimating]);
 
-  const prev = () => {
+  const prev = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentIndex(
       (prev) => (prev - 1 + testimonials.length) % testimonials.length
     );
-  };
+  }, [isAnimating]);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsAnimating(false), 500);
@@ -76,7 +76,7 @@ const Testimonials = () => {
     }, 5000);
 
     return () => clearInterval(auto);
-  }, [isPaused, isAnimating]);
+  }, [isPaused, next]);
 
   const visibleTestimonials = [];
   for (let i = 0; i < itemsPerView; i++) {
@@ -88,7 +88,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="section-glow section-glow-left relative overflow-hidden py-24 md:py-28"
+      className="perf-section section-glow section-glow-left relative overflow-hidden py-24 md:py-28"
     >
       {/* Background glow */}
       <div className="absolute inset-0">
@@ -158,6 +158,8 @@ const Testimonials = () => {
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                   </div>

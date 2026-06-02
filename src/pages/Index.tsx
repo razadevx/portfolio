@@ -1,14 +1,16 @@
+import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Technologies from "@/components/Technologies";
-import Portfolio from "@/components/Portfolio";
-import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import GalaxyAmbient from "@/components/GalaxyAmbient";
+
+const About = lazy(() => import("@/components/About"));
+const Services = lazy(() => import("@/components/Services"));
+const Technologies = lazy(() => import("@/components/Technologies"));
+const Portfolio = lazy(() => import("@/components/Portfolio"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const Contact = lazy(() => import("@/components/Contact"));
+const Footer = lazy(() => import("@/components/Footer"));
+const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 
 const Index = () => {
   return (
@@ -16,14 +18,16 @@ const Index = () => {
       <GalaxyAmbient />
       <Header />
       <Hero />
-      <About />
-      <Services />
-      <Technologies />
-      <Portfolio />
-      <Testimonials />
-      <Contact />
-      <Footer />
-      <WhatsAppButton />
+      <Suspense fallback={null}>
+        <About />
+        <Services />
+        <Technologies />
+        <Portfolio />
+        <Testimonials />
+        <Contact />
+        <Footer />
+        <WhatsAppButton />
+      </Suspense>
     </div>
   );
 };

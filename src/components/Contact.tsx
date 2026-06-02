@@ -42,7 +42,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-glow relative overflow-hidden py-24 md:py-28">
+    <section id="contact" className="perf-section section-glow relative overflow-hidden py-24 md:py-28">
 
       {/* Background glow */}
 

@@ -1,7 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useMemo, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
-import gsap from "gsap";
 
 const filters = ["All", "WordPress", "Shopify", "Web Apps"];
 
@@ -106,46 +105,28 @@ const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [page, setPage] = useState(1);
 
-  const cardsRef = useRef<(HTMLAnchorElement | null)[]>([]);
-
-  const filtered =
-    activeFilter === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeFilter);
-
-  const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
-
-  /* FIX: Clamp page so it never exceeds total pages */
-  useEffect(() => {
-    if (page > totalPages) {
-      setPage(1);
-    }
-  }, [totalPages, page]);
-
-  const paginatedProjects = filtered.slice(
-    (page - 1) * ITEMS_PER_PAGE,
-    page * ITEMS_PER_PAGE,
+  const filtered = useMemo(
+    () =>
+      activeFilter === "All"
+        ? projects
+        : projects.filter((p) => p.category === activeFilter),
+    [activeFilter],
   );
 
-  /* reset refs each render */
-  cardsRef.current = [];
+  const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+  const safePage = Math.min(page, totalPages);
 
-  useEffect(() => {
-    gsap.fromTo(
-      cardsRef.current,
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: "power3.out",
-      },
-    );
-  }, [page, activeFilter]);
+  const paginatedProjects = useMemo(
+    () =>
+      filtered.slice(
+        (safePage - 1) * ITEMS_PER_PAGE,
+        safePage * ITEMS_PER_PAGE,
+      ),
+    [filtered, safePage],
+  );
 
   return (
-    <section id="work" className="section-glow relative py-24 md:py-28">
+    <section id="work" className="perf-section section-glow relative py-24 md:py-28">
       <div className="container mx-auto px-6">
         {/* HEADER */}
         <div className="text-center mb-14">
@@ -176,7 +157,7 @@ const Portfolio = () => {
               className={`px-5 py-2 rounded-full text-sm border transition-all duration-200
       ${
         activeFilter === filter
-          ? "liquid-pill text-primary-foreground border-primary/40 shadow-sm"
+          ? "liquid-pill text-primary border-primary/50 shadow-[0_0_24px_rgba(0,206,229,0.14)]"
           : "liquid-panel-soft text-muted-foreground hover:border-primary hover:text-primary hover:-translate-y-[1px]"
       }`}
             >
@@ -193,14 +174,16 @@ const Portfolio = () => {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              ref={(el) => (cardsRef.current[i] = el)}
-              className="group"
+              className="group animate-fade-in-up"
+              style={{ animationDelay: `${i * 60}ms` }}
             >
               <Card className="liquid-panel-soft overflow-hidden rounded-[26px]">
                 <div className="relative aspect-video overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
 
@@ -239,7 +222,7 @@ const Portfolio = () => {
           <div className="flex items-center gap-3">
             {Array.from({ length: totalPages }).map((_, i) => {
               const pageNumber = i + 1;
-              const active = page === pageNumber;
+              const active = safePage === pageNumber;
 
               return (
                 <button
@@ -263,7 +246,7 @@ const Portfolio = () => {
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <button
               onClick={() => setPage((p) => Math.max(p - 1, 1))}
-              disabled={page === 1}
+              disabled={safePage === 1}
               className="transition hover:text-primary disabled:opacity-30"
             >
               ← Previous
@@ -275,7 +258,7 @@ const Portfolio = () => {
 
             <button
               onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
-              disabled={page === totalPages}
+              disabled={safePage === totalPages}
               className="transition hover:text-primary disabled:opacity-30"
             >
               Next →

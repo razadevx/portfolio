@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="section-glow section-glow-left relative -mt-10 py-24 md:-mt-14 md:py-28"
+      className="perf-section section-glow section-glow-left relative -mt-10 py-24 md:-mt-14 md:py-28"
     >
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
