@@ -88,7 +88,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="perf-section section-glow section-glow-left relative overflow-hidden py-24 md:py-28"
+      className="perf-section section-glow section-glow-left relative py-16 sm:py-20 md:py-28"
     >
       {/* Background glow */}
       <div className="absolute inset-0">
@@ -104,7 +104,7 @@ const Testimonials = () => {
             Testimonials
           </div>
 
-          <h2 className="text-4xl font-bold tracking-[-0.03em] md:text-5xl">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] md:text-5xl">
             What Clients  <span className="gradient-text">Say</span>
           </h2>
 

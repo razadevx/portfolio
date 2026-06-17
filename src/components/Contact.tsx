@@ -42,7 +42,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="perf-section section-glow relative overflow-hidden py-24 md:py-28">
+    <section id="contact" className="perf-section section-glow relative py-16 sm:py-20 md:py-28">
 
       {/* Background glow */}
 
@@ -60,7 +60,7 @@ const Contact = () => {
               Get In Touch
             </div>
 
-            <h2 className="text-4xl font-bold tracking-[-0.03em] md:text-5xl">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] md:text-5xl">
               Have a Project in Mind?{" "}
               <span className="gradient-text">Let's Talk.</span>
             </h2>

@@ -120,10 +120,10 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
         maxRadius * 1.04,
       );
       if (isLightTheme) {
-        outerGlow.addColorStop(0, "rgba(0, 206, 229, 0.24)");
-        outerGlow.addColorStop(0.3, "rgba(0, 150, 168, 0.19)");
-        outerGlow.addColorStop(0.62, "rgba(0, 92, 104, 0.11)");
-        outerGlow.addColorStop(1, "rgba(0, 44, 52, 0)");
+        outerGlow.addColorStop(0, "rgba(1, 178, 250, 0.15)");
+        outerGlow.addColorStop(0.3, "rgba(1, 178, 250, 0.10)");
+        outerGlow.addColorStop(0.62, "rgba(1, 178, 250, 0.05)");
+        outerGlow.addColorStop(1, "rgba(1, 178, 250, 0)");
       } else {
         outerGlow.addColorStop(0, "rgba(206, 251, 255, 0.18)");
         outerGlow.addColorStop(0.28, "rgba(0, 206, 229, 0.15)");
@@ -163,7 +163,7 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
         ? (isLightTheme ? 6 : 4) + particle.radius * (isLightTheme ? 0.016 : 0.012)
         : 0;
       if (shadowEnabled) {
-        context.shadowColor = isLightTheme ? "rgba(0, 184, 205, 0.56)" : particle.color;
+        context.shadowColor = isLightTheme ? "rgba(1, 178, 250, 0.4)" : particle.color;
       }
       context.beginPath();
       context.moveTo(-particle.stretch, 0);
@@ -183,21 +183,29 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
         0,
         centerRadius * 1.24,
       );
-      ringGlow.addColorStop(0, "rgba(255,255,255,0.95)");
-      ringGlow.addColorStop(0.35, "rgba(206,251,255,0.92)");
-      ringGlow.addColorStop(0.58, "rgba(0,206,229,0.78)");
-      ringGlow.addColorStop(0.74, "rgba(0,206,229,0.12)");
-      ringGlow.addColorStop(1, "rgba(0,206,229,0)");
+      if (isLightTheme) {
+        ringGlow.addColorStop(0, "rgba(255, 255, 255, 0.9)");
+        ringGlow.addColorStop(0.35, "rgba(1, 178, 250, 0.7)");
+        ringGlow.addColorStop(0.58, "rgba(1, 178, 250, 0.3)");
+        ringGlow.addColorStop(0.74, "rgba(1, 178, 250, 0.1)");
+        ringGlow.addColorStop(1, "rgba(1, 178, 250, 0)");
+      } else {
+        ringGlow.addColorStop(0, "rgba(255,255,255,0.95)");
+        ringGlow.addColorStop(0.35, "rgba(206,251,255,0.92)");
+        ringGlow.addColorStop(0.58, "rgba(0,206,229,0.78)");
+        ringGlow.addColorStop(0.74, "rgba(0,206,229,0.12)");
+        ringGlow.addColorStop(1, "rgba(0,206,229,0)");
+      }
 
       context.fillStyle = ringGlow;
       context.beginPath();
       context.arc(0, 0, centerRadius * 1.24, 0, Math.PI * 2);
       context.fill();
 
-      context.strokeStyle = "rgba(217, 253, 255, 0.9)";
+      context.strokeStyle = isLightTheme ? "rgba(1, 178, 250, 0.9)" : "rgba(217, 253, 255, 0.9)";
       context.lineWidth = Math.max(4, centerRadius * 0.1);
       context.shadowBlur = 20;
-      context.shadowColor = "rgba(0, 206, 229, 0.58)";
+      context.shadowColor = isLightTheme ? "rgba(1, 178, 250, 0.6)" : "rgba(0, 206, 229, 0.58)";
       context.beginPath();
       context.arc(0, 0, centerRadius, 0, Math.PI * 2);
       context.stroke();
@@ -211,9 +219,15 @@ const HeroVortexCanvas = ({ className }: HeroVortexCanvasProps) => {
         0,
         centerRadius * 0.98,
       );
-      core.addColorStop(0, "rgba(3, 10, 18, 0.92)");
-      core.addColorStop(0.7, "rgba(2, 8, 16, 0.98)");
-      core.addColorStop(1, "rgba(0, 0, 0, 1)");
+      if (isLightTheme) {
+        core.addColorStop(0, "rgba(10, 25, 45, 0.95)");
+        core.addColorStop(0.7, "rgba(5, 12, 25, 0.98)");
+        core.addColorStop(1, "rgba(2, 5, 12, 1)");
+      } else {
+        core.addColorStop(0, "rgba(3, 10, 18, 0.92)");
+        core.addColorStop(0.7, "rgba(2, 8, 16, 0.98)");
+        core.addColorStop(1, "rgba(0, 0, 0, 1)");
+      }
 
       context.fillStyle = core;
       context.beginPath();

@@ -23,19 +23,9 @@ const Header = () => {
 
   useEffect(() => {
     let animationFrame = 0;
-    let sectionPositions: { id: string; top: number }[] = [];
-
-    const updateSectionPositions = () => {
-      sectionPositions = navItems
-        .map((item) => {
-          const section = document.getElementById(item.id);
-          return section ? { id: item.id, top: section.offsetTop } : null;
-        })
-        .filter(Boolean) as { id: string; top: number }[];
-    };
 
     const readScrollState = () => {
-      const scrollPosition = window.scrollY + 160;
+      const scrollPosition = window.scrollY + 200;
       const nextScrolled = window.scrollY > 18;
 
       if (nextScrolled !== isScrolledRef.current) {
@@ -43,12 +33,18 @@ const Header = () => {
         setIsScrolled(nextScrolled);
       }
 
-      let currentSection = sectionPositions[0]?.id ?? navItems[0].id;
+      let currentSection = navItems[0].id;
 
-      for (const section of sectionPositions) {
-        if (section.top <= scrollPosition) {
-          currentSection = section.id;
+      for (const item of navItems) {
+        const section = document.getElementById(item.id);
+        if (section && section.offsetTop <= scrollPosition) {
+          currentSection = item.id;
         }
+      }
+
+      // If we're at the bottom of the page, select the last item
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
+        currentSection = navItems[navItems.length - 1].id;
       }
 
       if (currentSection !== activeSectionRef.current) {
@@ -68,15 +64,14 @@ const Header = () => {
       });
     };
 
-    updateSectionPositions();
-    readScrollState();
+    // Delay initial read to give lazy components a moment to mount if possible
+    setTimeout(readScrollState, 100);
+    
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", updateSectionPositions, { passive: true });
 
     return () => {
       window.cancelAnimationFrame(animationFrame);
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", updateSectionPositions);
     };
   }, []);
 

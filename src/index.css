@@ -8,42 +8,42 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 203 92% 6%;
-    --foreground: 190 48% 96%;
+    --background: 220 50% 2%;
+    --foreground: 220 10% 98%;
 
-    --card: 200 64% 10%;
-    --card-foreground: 190 48% 96%;
+    --card: 220 40% 6%;
+    --card-foreground: 220 10% 98%;
 
-    --popover: 200 64% 10%;
-    --popover-foreground: 190 48% 96%;
+    --popover: 220 40% 6%;
+    --popover-foreground: 220 10% 98%;
 
-    --primary: 186 100% 45%;
+    --primary: 197 99% 49%;
     --primary-foreground: 203 92% 6%;
 
-    --secondary: 197 52% 15%;
-    --secondary-foreground: 190 48% 96%;
+    --secondary: 220 30% 12%;
+    --secondary-foreground: 220 10% 98%;
 
-    --muted: 198 42% 17%;
-    --muted-foreground: 192 28% 72%;
+    --muted: 220 30% 12%;
+    --muted-foreground: 220 20% 65%;
 
-    --accent: 186 100% 45%;
+    --accent: 197 99% 49%;
     --accent-foreground: 203 92% 6%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 190 48% 96%;
 
-    --border: 194 38% 22%;
-    --input: 194 38% 22%;
-    --ring: 186 100% 45%;
+    --border: 220 30% 12%;
+    --input: 220 30% 12%;
+    --ring: 197 99% 49%;
 
     --radius: 0.75rem;
 
     /* Custom portfolio colors */
-    --electric: 186 100% 45%;
-    --electric-glow: 186 100% 57%;
-    --dark-bg: 203 92% 6%;
-    --card-bg: 200 64% 10%;
-    --gradient-start: 186 100% 45%;
+    --electric: 197 99% 49%;
+    --electric-glow: 197 99% 59%;
+    --dark-bg: 220 50% 2%;
+    --card-bg: 220 40% 6%;
+    --gradient-start: 197 99% 49%;
     --gradient-mid: 190 100% 63%;
     --gradient-end: 171 96% 43%;
 
@@ -61,7 +61,7 @@ All colors MUST be HSL.
     --popover: 190 70% 99%;
     --popover-foreground: 203 88% 9%;
 
-    --primary: 186 100% 45%;
+    --primary: 197 99% 49%;
     --primary-foreground: 203 92% 6%;
 
     --secondary: 190 48% 91%;
@@ -70,7 +70,7 @@ All colors MUST be HSL.
     --muted: 190 42% 89%;
     --muted-foreground: 201 34% 36%;
 
-    --accent: 186 100% 45%;
+    --accent: 197 99% 49%;
     --accent-foreground: 203 92% 6%;
 
     --destructive: 0 84% 60%;
@@ -78,14 +78,14 @@ All colors MUST be HSL.
 
     --border: 190 34% 78%;
     --input: 190 34% 78%;
-    --ring: 186 100% 45%;
+    --ring: 197 99% 49%;
 
     /* Custom portfolio colors */
-    --electric: 186 100% 45%;
-    --electric-glow: 186 100% 57%;
+    --electric: 197 99% 49%;
+    --electric-glow: 197 99% 59%;
     --dark-bg: 190 70% 99%;
     --card-bg: 190 70% 99%;
-    --gradient-start: 186 100% 45%;
+    --gradient-start: 197 99% 49%;
     --gradient-mid: 190 100% 58%;
     --gradient-end: 171 90% 40%;
   }
@@ -182,7 +182,7 @@ All colors MUST be HSL.
       radial-gradient(circle at 12% -8%, hsl(var(--primary) / 0.18) 0%, transparent 30%),
       radial-gradient(circle at 88% 8%, hsl(var(--gradient-end) / 0.16) 0%, transparent 28%),
       linear-gradient(135deg, hsl(var(--primary) / 0.07) 0 1px, transparent 1px),
-      linear-gradient(180deg, hsl(203 92% 6%) 0%, hsl(198 78% 8%) 48%, hsl(203 92% 5%) 100%);
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(220 40% 4%) 48%, hsl(var(--background)) 100%);
     background-size: auto, auto, 28px 28px, auto;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
       sans-serif;
@@ -265,7 +265,7 @@ All colors MUST be HSL.
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 28px rgba(0, 206, 229, 0.22);
+    text-shadow: 0 0 28px rgba(1,178,250, 0.22);
   }
 
   .hero-galaxy-scene {
@@ -316,7 +316,7 @@ All colors MUST be HSL.
     position: absolute;
     border-radius: 9999px;
     background: rgba(255, 255, 255, 0.78);
-    box-shadow: 0 0 14px rgba(0, 206, 229, 0.3);
+    box-shadow: 0 0 14px rgba(1,178,250, 0.3);
     animation: star-twinkle 6s ease-in-out infinite;
   }
 
@@ -363,7 +363,7 @@ All colors MUST be HSL.
 
   .hero-vortex-aura {
     background:
-      radial-gradient(circle at center, rgba(210, 251, 255, 0.26) 0%, rgba(0, 206, 229, 0.22) 24%, rgba(0, 132, 146, 0.14) 50%, transparent 74%);
+      radial-gradient(circle at center, rgba(210, 251, 255, 0.26) 0%, rgba(1,178,250, 0.22) 24%, rgba(0, 132, 146, 0.14) 50%, transparent 74%);
     filter: blur(34px);
     opacity: 0.88;
     animation: galaxy-pulse 12s ease-in-out infinite;
@@ -371,23 +371,23 @@ All colors MUST be HSL.
 
   .hero-vortex-canvas {
     contain: layout paint size;
-    filter: drop-shadow(0 0 30px rgba(0, 206, 229, 0.2));
+    filter: drop-shadow(0 0 30px rgba(1,178,250, 0.2));
   }
 
   .hero-star {
     box-shadow:
       0 0 10px rgba(255, 255, 255, 0.55),
-      0 0 18px rgba(0, 206, 229, 0.22);
+      0 0 18px rgba(1,178,250, 0.22);
     opacity: 0.5;
     animation: star-twinkle 6s ease-in-out infinite;
   }
 
   .hover-glow {
-    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,206,229,0.32)];
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(1,178,250,0.32)];
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,206,229,0.18)];
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(1,178,250,0.18)];
   }
 
   .gradient-border {
@@ -404,15 +404,15 @@ All colors MUST be HSL.
 }
 
 .light .hero-title-glow {
-  text-shadow: 0 0 22px rgba(0, 206, 229, 0.16);
+  text-shadow: 0 0 22px rgba(1,178,250, 0.16);
 }
 
 .light body {
   background:
-    radial-gradient(circle at 14% -10%, hsl(var(--primary) / 0.22) 0%, transparent 28%),
-    radial-gradient(circle at 86% 6%, hsl(var(--gradient-end) / 0.14) 0%, transparent 32%),
-    linear-gradient(135deg, hsl(186 100% 45% / 0.08) 0 1px, transparent 1px),
-    linear-gradient(180deg, hsl(190 62% 97%) 0%, hsl(190 52% 94%) 48%, hsl(198 44% 92%) 100%);
+    radial-gradient(circle at 14% -10%, hsl(var(--primary) / 0.04) 0%, transparent 28%),
+    radial-gradient(circle at 86% 6%, hsl(var(--primary) / 0.03) 0%, transparent 32%),
+    linear-gradient(135deg, hsl(197 99% 49% / 0.02) 0 1px, transparent 1px),
+    linear-gradient(180deg, hsl(220 14% 96%) 0%, hsl(220 14% 93%) 100%);
   background-size: auto, auto, 30px 30px, auto;
 }
 
@@ -426,18 +426,15 @@ All colors MUST be HSL.
 
 .light .hero-galaxy-vignette {
   background:
-    radial-gradient(circle at 83% 28%, hsl(188 100% 35% / 0.22) 0%, transparent 30%),
-    radial-gradient(circle at 90% 10%, hsl(var(--primary) / 0.38) 0%, transparent 22%),
-    radial-gradient(circle at 80% 30%, hsl(var(--gradient-end) / 0.28) 0%, transparent 34%),
-    radial-gradient(circle at 60% 46%, hsl(var(--primary) / 0.16) 0%, transparent 34%),
-    linear-gradient(90deg, hsl(var(--background) / 0.04) 0%, hsl(var(--background) / 0.02) 34%, hsl(var(--background) / 0.16) 72%, hsl(var(--background) / 0.3) 100%);
+    radial-gradient(circle at 80% 30%, hsl(var(--primary) / 0.05) 0%, transparent 50%),
+    linear-gradient(90deg, transparent 0%, hsl(var(--background) / 0.6) 100%);
 }
 
 .light .hero-vortex-aura {
   background:
-    radial-gradient(circle at center, rgba(204, 250, 255, 0.18) 0%, rgba(0, 206, 229, 0.28) 24%, rgba(0, 132, 146, 0.2) 52%, transparent 76%);
-  opacity: 0.92;
-  filter: blur(24px) saturate(1.24);
+    radial-gradient(circle at center, rgba(1, 178, 250, 0.08) 0%, transparent 60%);
+  opacity: 0.6;
+  filter: blur(34px);
 }
 
 .light .hero-vortex-canvas {
@@ -456,12 +453,12 @@ All colors MUST be HSL.
   opacity: 0.72;
   box-shadow:
     0 0 10px rgba(255, 255, 255, 0.84),
-    0 0 18px rgba(0, 206, 229, 0.24);
+    0 0 18px rgba(1,178,250, 0.24);
 }
 
 .light .ambient-star {
   background: rgba(255, 255, 255, 0.66);
-  box-shadow: 0 0 12px rgba(0, 206, 229, 0.2);
+  box-shadow: 0 0 12px rgba(1,178,250, 0.2);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -494,12 +491,12 @@ img.h-10.w-auto {
   height: 3.6rem;
 }
 ::selection {
-  background: rgba(0, 206, 229, 0.44);
+  background: rgba(1,178,250, 0.44);
   color: hsl(203 92% 6%);
 }
 
 ::-moz-selection {
-  background: rgba(0, 206, 229, 0.44);
+  background: rgba(1,178,250, 0.44);
   color: hsl(203 92% 6%);
 }
 @media (min-width: 1024px) {
@@ -516,5 +513,5 @@ img.h-10.w-auto {
   }
 }
 .hover\:text-accent-foreground:hover {
-  color: #00cee5;
+  color: #01b2fa;
 }

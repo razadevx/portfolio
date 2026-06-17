@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="perf-section section-glow section-glow-left relative -mt-10 py-24 md:-mt-14 md:py-28"
+      className="perf-section section-glow section-glow-left relative -mt-10 py-16 sm:py-20 md:-mt-14 md:py-28"
     >
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
@@ -15,7 +15,7 @@ const About = () => {
                 Bit About Me
               </div>
 
-              <h2 className="pb-2 text-4xl font-bold tracking-[-0.03em] md:text-5xl">
+              <h2 className="pb-2 text-3xl sm:text-4xl font-bold tracking-[-0.03em] md:text-5xl">
                 <span className="gradient-text">From Idea to Impactful Websites</span>
               </h2>
 
@@ -59,19 +59,19 @@ const About = () => {
               <div className="liquid-panel relative rounded-[28px] p-8 hover-glow">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <div className="text-4xl font-bold text-primary">50+</div>
+                    <div className="text-3xl sm:text-4xl font-bold text-primary">50+</div>
                     <div className="text-sm text-muted-foreground">
                       Projects Delivered
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="text-4xl font-bold text-primary">3+</div>
+                    <div className="text-3xl sm:text-4xl font-bold text-primary">3+</div>
                     <div className="text-sm text-muted-foreground">
                       Years Experience
                     </div>
                   </div>
                   <div className="col-span-2 space-y-2 pt-4 border-t border-border">
-                    <div className="text-4xl font-bold text-primary">5+</div>
+                    <div className="text-3xl sm:text-4xl font-bold text-primary">5+</div>
                     <div className="text-sm text-muted-foreground">
                       Core Technologies Mastered & Expanding
                     </div>

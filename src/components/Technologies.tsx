@@ -33,14 +33,14 @@ const Technologies = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="perf-section section-glow section-glow-left overflow-hidden py-24 md:py-28">
+    <section className="perf-section section-glow section-glow-left py-16 sm:py-20 md:py-28">
       <div className="container mx-auto px-4 md:px-6 mb-12">
         <div className="text-center space-y-4 animate-fade-in-up">
           <div className="liquid-pill inline-block rounded-full px-4 py-2 text-sm font-semibold text-primary">
             Tech Stack
           </div>
 
-          <h2 className="text-4xl font-bold tracking-[-0.03em] md:text-5xl">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] md:text-5xl">
             Technologies I <span className="gradient-text">Work With</span>
           </h2>
 

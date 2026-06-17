@@ -126,7 +126,7 @@ const Portfolio = () => {
   );
 
   return (
-    <section id="work" className="perf-section section-glow relative py-24 md:py-28">
+    <section id="work" className="perf-section section-glow relative py-16 sm:py-20 md:py-28">
       <div className="container mx-auto px-6">
         {/* HEADER */}
         <div className="text-center mb-14">
@@ -134,7 +134,7 @@ const Portfolio = () => {
             Portfolio
           </div>
 
-          <h2 className="mb-4 text-4xl font-bold tracking-[-0.03em] md:text-5xl">
+          <h2 className="mb-4 text-3xl sm:text-4xl font-bold tracking-[-0.03em] md:text-5xl">
             Selected Work{" "}
             <span className="gradient-text">Built for Real Businesses</span>
           </h2>
