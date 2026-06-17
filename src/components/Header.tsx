@@ -146,6 +146,9 @@ const Header = () => {
               <img
                 src={logoSrc}
                 alt="RazaDevX"
+                width="160"
+                height="48"
+                fetchPriority="high"
                 className="h-11 w-auto transition-opacity duration-300 md:h-12"
               />
             </a>

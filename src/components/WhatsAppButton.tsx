@@ -40,6 +40,7 @@ const WhatsAppButton = () => {
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
+                  aria-label="Close chat"
                   className="w-8 h-8 rounded-full hover:bg-primary-foreground/10 flex items-center justify-center transition-colors"
                 >
                   <X className="w-4 h-4 text-primary-foreground" />
@@ -69,6 +70,7 @@ const WhatsAppButton = () => {
                   />
                   <button
                     onClick={handleSendMessage}
+                    aria-label="Send message"
                     className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground transition-transform hover:scale-105 active:scale-95"
                   >
                     <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
@@ -84,6 +86,7 @@ const WhatsAppButton = () => {
       {/* WhatsApp Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle WhatsApp chat"
         className="relative h-[53px] w-[53px] rounded-full bg-[#25D366] flex items-center justify-center shadow-[0_16px_36px_rgba(37,211,102,0.32)] group pointer-events-auto transition-transform hover:scale-105 active:scale-95"
       >
         {/* Pulse Ring */}

@@ -46,10 +46,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Logo & Info */}
           <div className="text-center md:text-left">
-            <a href="/" className="inline-block mb-2">
+            <a href="/" className="inline-block mb-2" aria-label="RazaDevX Home">
               <img
                 src={logoSrc}
                 alt="RazaDevX Logo"
+                width="140"
+                height="40"
+                loading="lazy"
                 className="h-10 w-auto transition-opacity duration-300"
               />
             </a>
@@ -71,6 +74,7 @@ const Footer = () => {
               href="https://github.com/RazaDevX"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
               className="p-3 rounded-full bg-secondary hover:bg-muted transition-colors group"
             >
               <Github className="h-5 w-5 text-muted-foreground group-hover:text-foreground" />
@@ -80,6 +84,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/razadeveloperx/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
               className="p-3 rounded-full bg-secondary hover:bg-muted transition-colors group"
             >
               <Linkedin className="h-5 w-5 text-muted-foreground group-hover:text-foreground" />
@@ -89,6 +94,7 @@ const Footer = () => {
               href="https://www.instagram.com/razadeveloperx/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Instagram"
               className="p-3 rounded-full bg-secondary hover:bg-muted transition-colors group"
             >
               <Instagram className="h-5 w-5 text-muted-foreground group-hover:text-foreground" />
@@ -98,6 +104,7 @@ const Footer = () => {
               href="https://wa.me/923267688920"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="WhatsApp"
               className="p-3 rounded-full bg-secondary hover:bg-muted transition-colors group"
             >
               <MessageCircle className="h-5 w-5 text-muted-foreground group-hover:text-foreground" />
