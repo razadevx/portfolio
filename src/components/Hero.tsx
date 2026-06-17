@@ -78,7 +78,7 @@ const Hero = () => {
                 Conversion-Focused Websites
               </p>
 
-              <h1 className="animate-fade-in-up max-w-[11ch] text-[clamp(2.5rem,11vw,4.15rem)] font-bold leading-[0.92] tracking-[-0.05em] sm:max-w-[13ch] sm:text-[4.1rem] md:text-[4.8rem] lg:text-[5.35rem]">
+              <h1 className="animate-fade-in-up max-w-[11ch] text-[clamp(2.8rem,13vw,4.15rem)] font-bold leading-[0.92] tracking-[-0.05em] sm:max-w-[13ch] sm:text-[4.1rem] md:text-[4.8rem] lg:text-[5.35rem]">
                 <span className="block text-foreground">
                   Building Modern
                 </span>
@@ -89,7 +89,7 @@ const Hero = () => {
             </div>
 
             <p
-              className="max-w-[22rem] text-[0.95rem] leading-relaxed text-muted-foreground sm:max-w-[30rem] sm:text-[1.02rem] md:max-w-[36rem] md:text-[1.16rem]"
+              className="max-w-[22rem] text-[1rem] leading-relaxed text-muted-foreground sm:max-w-[30rem] sm:text-[1.02rem] md:max-w-[36rem] md:text-[1.16rem]"
               style={{ animationDelay: "0.2s" }}
             >
               I help businesses turn ideas into fast, scalable digital products

@@ -43,7 +43,7 @@ const Header = () => {
       }
 
       // If we're at the bottom of the page, select the last item
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
+      if (window.scrollY > 100 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
         currentSection = navItems[navItems.length - 1].id;
       }
 
